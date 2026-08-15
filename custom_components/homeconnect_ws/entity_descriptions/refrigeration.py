@@ -158,6 +158,7 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
         HCBinarySensorEntityDescription(
             key="binary_sensor_refrigerator_defrost",
             entity="Refrigeration.Common.Status.Freezer.Defrost",
+            entity_category=EntityCategory.DIAGNOSTIC,
         ),
         HCBinarySensorEntityDescription(
             key="binary_sensor_water_filter_full",
@@ -170,6 +171,7 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
         HCBinarySensorEntityDescription(
             key="binary_sensor_refrigerator_defrost",
             entity="Refrigeration.FridgeFreezer.Status.DefrostFreezer",
+            entity_category=EntityCategory.DIAGNOSTIC,
         ),
         HCBinarySensorEntityDescription(
             key="binary_sensor_freezer_appliance_error",
@@ -214,10 +216,12 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
         HCBinarySensorEntityDescription(
             key="binary_sensor_fridge_defrost",
             entity="Refrigeration.Common.Status.Refrigerator.Defrost",
+            entity_category=EntityCategory.DIAGNOSTIC,
         ),
         HCBinarySensorEntityDescription(
             key="binary_sensor_chiller_common_defrost",
             entity="Refrigeration.Common.Status.ChillerCommon.Defrost",
+            entity_category=EntityCategory.DIAGNOSTIC,
         ),
         HCBinarySensorEntityDescription(
             key="binary_sensor_ice_hopper_full",
@@ -234,6 +238,7 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
         HCBinarySensorEntityDescription(
             key="binary_sensor_ice_expired",
             entity="Refrigeration.Common.Event.Dispenser.IceExpired",
+            entity_category=EntityCategory.DIAGNOSTIC,
             device_class=BinarySensorDeviceClass.PROBLEM,
             value_on={"Present", "Confirmed"},
             value_off={"Off"},
@@ -241,6 +246,7 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
         HCBinarySensorEntityDescription(
             key="binary_sensor_water_expired",
             entity="Refrigeration.Common.Event.WaterExpired",
+            entity_category=EntityCategory.DIAGNOSTIC,
             device_class=BinarySensorDeviceClass.PROBLEM,
             value_on={"Present", "Confirmed"},
             value_off={"Off"},
@@ -248,7 +254,9 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
         HCBinarySensorEntityDescription(
             key="binary_sensor_party_mode_empty_ice_hopper",
             entity="Refrigeration.Common.Event.Dispenser.PartyModeEmptyIceHopper",
+            entity_category=EntityCategory.DIAGNOSTIC,
             device_class=BinarySensorDeviceClass.PROBLEM,
+            entity_registry_enabled_default=False,
             value_on={"Present", "Confirmed"},
             value_off={"Off"},
         ),

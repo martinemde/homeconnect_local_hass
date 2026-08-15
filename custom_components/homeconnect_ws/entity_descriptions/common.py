@@ -220,11 +220,13 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             key="button_allow_customer_service_connection",
             entity="BSH.Common.Command.AllowCustomerServiceConnectionLocalWiFi",
             entity_category=EntityCategory.CONFIG,
+            entity_registry_enabled_default=False,
         ),
         HCButtonEntityDescription(
             key="button_disallow_customer_service_connection",
             entity="BSH.Common.Command.DisallowCustomerServiceConnection",
             entity_category=EntityCategory.CONFIG,
+            entity_registry_enabled_default=False,
         ),
         # Destructive and not undoable from Home Assistant, so opt-in only.
         HCButtonEntityDescription(
@@ -324,6 +326,7 @@ COMMON_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             key="binary_sensor_customer_service_request",
             entity="BSH.Common.Event.CustomerServiceRequest",
             entity_category=EntityCategory.DIAGNOSTIC,
+            entity_registry_enabled_default=False,
             value_on={"Present", "Confirmed"},
             value_off={"Off"},
         ),
