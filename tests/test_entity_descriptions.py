@@ -21,6 +21,7 @@ from custom_components.homeconnect_ws.entity_descriptions.common import (
 )
 from custom_components.homeconnect_ws.entity_descriptions.refrigeration import (
     generate_internal_light,
+    generate_internal_light_brightness,
 )
 from custom_components.homeconnect_ws.helpers import merge_dicts
 from homeassistant.components.sensor import SensorDeviceClass
@@ -265,6 +266,24 @@ async def test_internal_light(mock_homeconnect_appliance: MockApplianceType) -> 
     # No internal light
     appliance = await mock_homeconnect_appliance(description={})
     assert generate_internal_light(appliance) is None
+
+
+async def test_internal_light_brightness(mock_homeconnect_appliance: MockApplianceType) -> None:
+    """Test the brightness number defers to the light entity."""
+    # Light entity owns brightness, so the number is opt-in
+    appliance = await mock_homeconnect_appliance(description=INTERNAL_LIGHT)
+    description = generate_internal_light_brightness(appliance)
+    assert description.entity_registry_enabled_default is False
+
+    # No light entity to own it, so the number is the only control
+    brightness_only = DeviceDescription(setting=[INTERNAL_LIGHT["setting"][1]])
+    appliance = await mock_homeconnect_appliance(description=brightness_only)
+    description = generate_internal_light_brightness(appliance)
+    assert description.entity_registry_enabled_default is True
+
+    # No brightness at all
+    appliance = await mock_homeconnect_appliance(description={})
+    assert generate_internal_light_brightness(appliance) is None
 
 
 TRANSLATION_DOMAINS = {
