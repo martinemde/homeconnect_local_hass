@@ -81,6 +81,15 @@
       "switch_child_lock": {
         "name": "Child lock"
       },
+      "switch_allow_backend_connection": {
+        "name": "Allow backend connection"
+      },
+      "switch_allow_automatic_firmware_updates": {
+        "name": "Allow automatic firmware updates"
+      },
+      "switch_allow_consumer_insights": {
+        "name": "Allow consumer insights"
+      },
       "switch_door_light_ring": {
         "name": "Door Ring light"
       },
@@ -458,6 +467,27 @@
       },
       "binary_sensor_alarm_clock_elapsed": {
         "name": "Alarm Clock Elapsed"
+      },
+      "binary_sensor_backend_connected": {
+        "name": "Backend connected"
+      },
+      "binary_sensor_customer_service_connection_allowed": {
+        "name": "Customer service connection allowed"
+      },
+      "binary_sensor_customer_service_request": {
+        "name": "Customer service request"
+      },
+      "binary_sensor_connect_local_wifi": {
+        "name": "Connect local WiFi"
+      },
+      "binary_sensor_software_download_available": {
+        "name": "Software download available"
+      },
+      "binary_sensor_software_update_available": {
+        "name": "Software update available"
+      },
+      "binary_sensor_software_update_successful": {
+        "name": "Software update successful"
       }
     },
     "sensor": {
@@ -1640,6 +1670,9 @@
       },
       "sensor_wifi_signal_strength": {
         "name": "WiFi Signal strength"
+      },
+      "sensor_software_update_transaction_id": {
+        "name": "Software update transaction ID"
       },
       "sensor_grease_filter_saturation": {
         "name": "Grease Filter Saturation"
@@ -3457,6 +3490,27 @@
       },
       "button_mains_power_off": {
         "name": "PowerOFF"
+      },
+      "button_allow_software_download": {
+        "name": "Allow software download"
+      },
+      "button_allow_software_update": {
+        "name": "Allow software update"
+      },
+      "button_allow_customer_service_connection": {
+        "name": "Allow customer service connection"
+      },
+      "button_disallow_customer_service_connection": {
+        "name": "Disallow customer service connection"
+      },
+      "button_deactivate_wifi": {
+        "name": "Deactivate WiFi"
+      },
+      "button_apply_network_reset": {
+        "name": "Network reset"
+      },
+      "button_apply_factory_reset": {
+        "name": "Factory reset"
       },
       "button_hood_carbon_filter_reset": {
         "name": "Carbon filter reset"
