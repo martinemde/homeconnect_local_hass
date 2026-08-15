@@ -24,7 +24,7 @@ from homeconnect_websocket.message import Action
 from homeconnect_websocket.message import Message as HC_Message
 
 from .entity import HCEntity
-from .helpers import create_entities, entity_is_available, error_decorator
+from .helpers import create_entities, error_decorator
 
 if TYPE_CHECKING:
     from homeassistant.core import HomeAssistant
@@ -105,22 +105,9 @@ class HCLight(HCEntity, LightEntity):
             self._attr_supported_color_modes = {ColorMode.ONOFF}
             self._attr_color_mode = ColorMode.ONOFF
 
-    @property
-    def available(self) -> bool:
-        available = super().available
-        if self._brightness_entity:
-            available &= entity_is_available(
-                self._brightness_entity, self.entity_description.available_access
-            )
-        if self._color_temperature_entity:
-            available &= entity_is_available(
-                self._color_temperature_entity, self.entity_description.available_access
-            )
-        if self._color_entity:
-            available &= entity_is_available(
-                self._color_entity, self.entity_description.available_access
-            )
-        return available
+    # Availability deliberately follows the power entity alone. Appliances
+    # mark attribute entities such as brightness unavailable while the light
+    # is off, and losing an attribute must not remove the on/off control.
 
     @property
     def is_on(self) -> bool | None:
