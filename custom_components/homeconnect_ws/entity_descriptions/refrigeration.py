@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from typing import TYPE_CHECKING
+
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
 from homeassistant.components.number import NumberDeviceClass, NumberMode
 from homeassistant.components.sensor import SensorDeviceClass
@@ -17,6 +19,28 @@ from .descriptions_definitions import (
     HCSwitchEntityDescription,
     _EntityDescriptionsDefinitionsType,
 )
+
+if TYPE_CHECKING:
+    from homeconnect_websocket import HomeAppliance
+
+
+def generate_internal_light(appliance: HomeAppliance) -> HCLightEntityDescription | None:
+    """Get internal light description."""
+    if "Refrigeration.Common.Setting.Light.Internal.Power" not in appliance.entities:
+        return None
+
+    if "Refrigeration.Common.Setting.Light.Internal.Brightness" in appliance.entities:
+        return HCLightEntityDescription(
+            key="light_internal",
+            entity="Refrigeration.Common.Setting.Light.Internal.Power",
+            brightness_entity="Refrigeration.Common.Setting.Light.Internal.Brightness",
+        )
+
+    return HCLightEntityDescription(
+        key="light_internal",
+        entity="Refrigeration.Common.Setting.Light.Internal.Power",
+    )
+
 
 REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
     "binary_sensor": [
@@ -389,10 +413,7 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
         ),
     ],
     "light": [
-        HCLightEntityDescription(
-            key="light_internal",
-            entity="Refrigeration.Common.Setting.Light.Internal.Power",
-        ),
+        generate_internal_light,
         HCLightEntityDescription(
             key="light_logo",
             entity="Refrigeration.Common.Setting.Light.Logo.Power",
