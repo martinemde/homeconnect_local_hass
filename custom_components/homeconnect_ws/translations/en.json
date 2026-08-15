@@ -433,13 +433,7 @@
         "name": "Interior Illumination"
       },
       "binary_sensor_refrigerator_defrost": {
-        "name": "Defrost Freezer"
-      },
-      "binary_sensor_fridge_defrost": {
-        "name": "Defrost Fridge"
-      },
-      "binary_sensor_chiller_common_defrost": {
-        "name": "Defrost Chiller"
+        "name": "Defrost"
       },
       "binary_sensor_water_filter_full": {
         "name": "Water filter full"

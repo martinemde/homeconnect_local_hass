@@ -179,7 +179,6 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
         HCBinarySensorEntityDescription(
             key="binary_sensor_refrigerator_defrost",
             entity="Refrigeration.Common.Status.Freezer.Defrost",
-            entity_category=EntityCategory.DIAGNOSTIC,
         ),
         HCBinarySensorEntityDescription(
             key="binary_sensor_water_filter_full",
@@ -192,7 +191,6 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
         HCBinarySensorEntityDescription(
             key="binary_sensor_refrigerator_defrost",
             entity="Refrigeration.FridgeFreezer.Status.DefrostFreezer",
-            entity_category=EntityCategory.DIAGNOSTIC,
         ),
         HCBinarySensorEntityDescription(
             key="binary_sensor_freezer_appliance_error",
@@ -233,16 +231,6 @@ REFRIGERATION_ENTITY_DESCRIPTIONS: _EntityDescriptionsDefinitionsType = {
             device_class=BinarySensorDeviceClass.PROBLEM,
             value_on={"Present", "Confirmed"},
             value_off={"Off"},
-        ),
-        HCBinarySensorEntityDescription(
-            key="binary_sensor_fridge_defrost",
-            entity="Refrigeration.Common.Status.Refrigerator.Defrost",
-            entity_category=EntityCategory.DIAGNOSTIC,
-        ),
-        HCBinarySensorEntityDescription(
-            key="binary_sensor_chiller_common_defrost",
-            entity="Refrigeration.Common.Status.ChillerCommon.Defrost",
-            entity_category=EntityCategory.DIAGNOSTIC,
         ),
         HCBinarySensorEntityDescription(
             key="binary_sensor_ice_hopper_full",
