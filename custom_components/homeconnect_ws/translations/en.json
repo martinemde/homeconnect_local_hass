@@ -402,6 +402,12 @@
       "binary_sensor_idos_unit_defect": {
         "name": "i-DOS Defect"
       },
+      "binary_sensor_idos_open_tray": {
+        "name": "i-DOS Open Tray"
+      },
+      "binary_sensor_release_rinse_hold_pending": {
+        "name": "Release Rinse Hold Pending"
+      },
       "binary_sensor_pump_error": {
         "name": "Pump Error"
       },
@@ -3450,6 +3456,9 @@
           "fanstage03": "3"
         }
       },
+      "select_hob_ventilation": {
+        "name": "Ventilation"
+      },
       "select_hob_delaye_shutoff_stage": {
         "name": "Delayed ShutOff Stage",
         "state": {
@@ -3582,6 +3591,9 @@
       },
       "number_start_in": {
         "name": "Start in"
+      },
+      "number_finish_in": {
+        "name": "Finish in"
       },
       "number_setting_alarm_clock": {
         "name": "Alarm Clock"
